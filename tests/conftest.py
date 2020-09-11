@@ -75,7 +75,7 @@ def browser(config_browser, config_wait_time, config_executor, request):
             desired_caps['browserName'] = 'Chrome'
             driver = webdriver.Remote('http://localhost:4723/wd/hub', desired_caps)
         elif config_executor == "desktop":
-            chromedriver_autoinstaller.install()
+#             chromedriver_autoinstaller.install()
             options = Options()
             options.headless = True
             options.add_argument('log-level=3')

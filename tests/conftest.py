@@ -15,8 +15,7 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver import Chrome
 
 CONFIG_PATH = 'resources/config.json'
-Browser_path = 'resources/chromedriver.exe'
-# Browser_path = "Scripts/chromedriver.exe"
+Browser_path = "Scripts/chromedriver.exe"
 DEFAULT_WAIT_TIME = 10
 SUPPORTED_BROWSERS = ['chrome']
 SUPPORTED_EXECUTORS = ['mobile', 'desktop']
@@ -76,7 +75,7 @@ def browser(config_browser, config_wait_time, config_executor, request):
             desired_caps['browserName'] = 'Chrome'
             driver = webdriver.Remote('http://localhost:4723/wd/hub', desired_caps)
         elif config_executor == "desktop":
-            # chromedriver_autoinstaller.install()
+            chromedriver_autoinstaller.install()
             options = Options()
             options.headless = True
             options.add_argument('log-level=3')
@@ -90,7 +89,7 @@ def browser(config_browser, config_wait_time, config_executor, request):
             options.add_argument('--disable-dev-shm-usage')
             options.add_argument('--no-sandbox')
             options.add_argument('--ignore-certificate-errors')
-            driver = Chrome(Browser_path, options=options)
+            driver = Chrome(options=options)
         else:
             raise Exception(f'"{config_executor}" is not a supported executor')
     else:

@@ -78,7 +78,7 @@ def browser(config_browser, config_wait_time, config_executor, request):
         elif config_executor == "desktop":
             # chromedriver_autoinstaller.install()
             options = Options()
-            options.headless = True
+#             options.headless = True
             options.add_argument('log-level=3')
             options.add_argument("--window-size=1920,1080")
             options.add_argument("--disable-extensions")
